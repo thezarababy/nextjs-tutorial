@@ -1,4 +1,13 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { use } from "react";
+
+const navLinks = [
+  { name: "Login", href: "/auth/login" },
+  { name: "Register", href: "/auth/register" },
+  { name: "Forgot Password", href: "/auth/forgot-password" },
+];
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -10,14 +19,24 @@ export default function AuthLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
   return (
-    <html lang="en">
-      <body className="antialiased">
-        {children}
-        <footer className="p-4 border-t border-gray-300 mt-8 text-center bg-amber-500">
-          <p>© 2024 My Next.js App</p>
-        </footer>
-      </body>
-    </html>
+    <div>
+      {navLinks.map((link) => {
+        const isActive =
+          pathname === link.href ||
+          (pathname.startsWith(link.href) && link.href !== "/auth");
+        return (
+          <Link
+            className={isActive ? "font-bold mr-4" : "text-blue-500"}
+            href={link.href}
+            key={link.name}
+          >
+            {link.name}
+          </Link>
+        );
+      })}
+      {children}
+    </div>
   );
 }

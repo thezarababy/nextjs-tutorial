@@ -5,6 +5,7 @@ interface ComplexDashboardLayoutProps {
   users: React.ReactNode;
   revenue: React.ReactNode;
   notifications: React.ReactNode;
+  login?: React.ReactNode;
 }
 
 const ComplexDashboardLayout: React.FC<ComplexDashboardLayoutProps> = ({
@@ -12,8 +13,10 @@ const ComplexDashboardLayout: React.FC<ComplexDashboardLayoutProps> = ({
   users,
   revenue,
   notifications,
+  login,
 }) => {
-  return (
+  const isLoggedIn = false; // Replace with actual authentication logic
+  return isLoggedIn ? (
     <div>
       <div>{children}</div>
       <div>
@@ -22,6 +25,8 @@ const ComplexDashboardLayout: React.FC<ComplexDashboardLayoutProps> = ({
         {notifications}
       </div>
     </div>
+  ) : (
+    <div>{login}</div>
   );
 };
 

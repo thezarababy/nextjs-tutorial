@@ -1,22 +1,28 @@
 import React from "react";
 
-const ComplexDashboardLayout = ({ children, users, revenue, notifications }
-  
-}: {
+interface ComplexDashboardLayoutProps {
   children: React.ReactNode;
   users: React.ReactNode;
   revenue: React.ReactNode;
   notifications: React.ReactNode;
-})  {
+}
+
+const ComplexDashboardLayout: React.FC<ComplexDashboardLayoutProps> = ({
+  children,
+  users,
+  revenue,
+  notifications,
+}) => {
   return (
     <div>
-    <div>{children}</div>
-    <div>
-      {users}
-      {revenue}
-      {notifications}
-  </div>
-  </div>
-);
+      <div>{children}</div>
+      <div>
+        {users}
+        {revenue}
+        {notifications}
+      </div>
+    </div>
+  );
+};
 
 export default ComplexDashboardLayout;

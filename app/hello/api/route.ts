@@ -6,5 +6,7 @@ export async function GET(request: NextRequest) {
   // console.log(requestHeaders.get("Authorization"));
   const headersList = await headers();
   console.log(headersList.get("authorization"));
-  return new Response("Hello, Next.js!");
+  return new Response("<h1>Hello, Next.js!</h1>", {
+    headers: { "Content-Type": "text/html" },
+  });
 }

@@ -1,9 +1,14 @@
+import { cookies } from "next/headers";
+
 export const metadata = {
   title: "About Page",
   description: "This is the about page of our Next.js tutorial",
 };
 
-const page = () => {
+const page = async () => {
+  const cookieStore = await cookies();
+  const theme = cookieStore.get("theme");
+  console.log(theme);
   return <div> this is the about page {new Date().toLocaleTimeString()}</div>;
 };
 

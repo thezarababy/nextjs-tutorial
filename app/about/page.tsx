@@ -4,7 +4,7 @@ export const metadata = {
 };
 
 const page = () => {
-  return <div> this is the about page</div>;
+  return <div> this is the about page {new Date().toLocaleTimeString()}</div>;
 };
 
 export default page;

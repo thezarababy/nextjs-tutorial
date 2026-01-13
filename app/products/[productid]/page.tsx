@@ -20,7 +20,11 @@ const ProductDetails = async ({
   params: Promise<{ productid: string }>;
 }) => {
   const { productid } = await params;
-  return <div>details about the product {productid}</div>;
+  return (
+    <div>
+      details about the product {productid} at {new Date().toLocaleTimeString()}
+    </div>
+  );
 };
 
 export default ProductDetails;

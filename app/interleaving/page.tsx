@@ -1,9 +1,9 @@
-import ServerComponentOne from "../../components/server-component-one";
+import ClientComponentOne from "@/components/client-component-one";
 const Interleaving = () => {
   return (
     <div>
       <h1>Interleaving Page</h1>
-      <ServerComponentOne />
+      <ClientComponentOne />
     </div>
   );
 };

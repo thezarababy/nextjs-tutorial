@@ -8,4 +8,12 @@ generator client {
 
 datasource db {
   provider = "sqlite"
+  url = "file:app.db"
+}
+
+model product{
+id              Int   @id@default(autoincrement())
+title           String
+price           Int
+description     String? 
 }
